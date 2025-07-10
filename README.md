@@ -1,12 +1,37 @@
-# React + Vite
+This is a simple e-commerce React application that fetches products from the Fake Store API, displays them in a responsive layout, and provides full cart functionality—from adding/removing items to quantity adjustments and a 10% discount at final price.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+ Features
+ Product Listing Page (`/`)
+  - Fetch and display product image, title, price, description  
+  - "Add to Cart" button for each product; toggles to "Remove from Cart" if already in cart  
+  - Responsive grid layout
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+  Cart Page (`/cart`)
+  - List items in cart with name, price, quantity controls (±)  
+  - Compute per-item total (`price × quantity`)  
+  - Dynamic cart total, with a 10% discount applied
+  - "Remove from Cart" option for each item
 
-## Expanding the ESLint configuration
+  State Management
+  - Cart state managed via React Context (or custom hook) for global accessibility  
+  - Adds/removes items, updates quantities, updates total price and discount
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+  Routing
+  - `/` – Product listing page  
+  - `/cart` – Cart details page  
+  
+  Project Structure
+src/
+  ├── components/
+  │     ├── Navbar.jsx
+  │     ├── ProductCard.jsx
+  │     └── CartItem.jsx
+  ├── pages/
+  │     ├── Home.jsx
+  │     └── Cart.jsx
+  ├── context/
+  │     └── CartContext.jsx
+  ├── App.jsx
+  
+  └── main.jsx
